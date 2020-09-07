@@ -42,7 +42,7 @@ resource "oci_file_storage_export" "oci_export_paths" {
   count = length(var.export_paths)
   export_set_id = oci_file_storage_export_set.oci_export_sets[count.index].id
   file_system_id = oci_file_storage_file_system.oci_file_systems[count.index].id
-  path = var.export_paths[count.index].fss_export_path
+  path = var.export_paths[count.index].path
 
   #Optional
   export_options {

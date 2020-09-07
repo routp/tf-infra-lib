@@ -3,7 +3,7 @@ variable "fss_snapshots" {}
 resource "oci_file_storage_snapshot" "oci_fss_snapshots" {
   count = length(var.fss_snapshots)
   file_system_id = var.fss_snapshots[count.index].file_system_id
-  name = var.fss_snapshots[count.index].fss_export_path
+  name = var.fss_snapshots[count.index].name
 
   #Optional
   defined_tags = lookup(var.fss_snapshots[count.index], "defined_tags", null)
